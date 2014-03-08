@@ -1,0 +1,18 @@
+﻿automacro buffFlag {
+	console /\[dist=(.*)\] (.*) \((\d+)\): \*Flag/i
+	
+	call {
+		$distance = $.lastMatch1
+		$namePlayer = $.lastMatch2
+		$playerID = $.lastMatch3
+		$console = $.lastMatch4
+		$playerguild = @eval (exists $::players{$::playersID[$playerID]}->{guild} ? $::players{$::playersID[$playerID]}->{guild}{name} : 'null')
+		
+		#if ($playerguild == Fear Us || $playerguild == • H E R O E S •) call shit
+		call shit
+	}
+}
+
+macro shit {
+	do sp 34 $playerID
+}
